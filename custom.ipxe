@@ -8,6 +8,7 @@ clear custom_choice
 menu MidnightSuga's Custom Menu
 item --gap Custom Menu
 item endeavour ${space} Boot EndeavourOS
+item endeavour2 ${space} Boot EndeavourOS (local)
 choose custom_choice || goto custom_exit
 echo ${cls}
 echo ${custom_choice}
@@ -18,6 +19,11 @@ kernel https://boot.netboot.xyz/memdisk raw iso
 initrd https://mirrors.gigenet.com/endeavouros/iso/EndeavourOS_Endeavour_neo-2024.09.22.iso
 boot || goto custom_exit
 
+:endeavour2
+kernel http://10.1.6.242:31011/asset-mirror/releases/download/Galileo-11-2023-e0c48f1f/vmlinuz
+initrd http://10.1.6.242:31011/asset-mirror/releases/download/Galileo-11-2023-e0c48f1f/initrd
+imgargs vmlinuz 
+boot
+
 :custom_exit
-chain utils.ipxe
 exit
