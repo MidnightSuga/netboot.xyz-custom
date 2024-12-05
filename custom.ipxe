@@ -3,10 +3,21 @@
 ### netboot.xyz-custom menu
 ###
 
-:start
-echo Hello world!
-sleep 10
+:custom
+clear custom_choice
+menu MidnightSuga's Custom Menu
+item --gap Custom Menu
+item endeavour ${space} Boot EndeaverOS
+choose custom_choice || goto custom_exit
+echo ${cls}
+echo ${custom_choice}
 goto custom_exit
 
+:endeavour
+kernel https://boot.netboot.xyz/memdisk raw iso
+initrd https://mirrors.gigenet.com/endeavouros/iso/EndeavourOS_Endeavour_neo-2024.09.22.iso
+boot || goto custom_exit
+
 :custom_exit
-exit 0
+chain utils.ipxe
+exit
