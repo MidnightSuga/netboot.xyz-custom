@@ -22,8 +22,7 @@ boot || goto custom_exit
 :endeavour2
 kernel http://10.1.6.242:31011/asset-mirror/releases/download/Galileo-11-2023-e0c48f1f/vmlinuz
 initrd http://10.1.6.242:31011/asset-mirror/releases/download/Galileo-11-2023-e0c48f1f/initrd
-imgargs vmlinuz 
-boot
+boot || goto custom_exit
 
 :custom_exit
 exit
