@@ -7,7 +7,7 @@
 clear custom_choice
 menu MidnightSuga's Custom Menu
 item --gap Custom Menu
-item endeavour ${space} Boot EndeaverOS
+item endeavour ${space} Boot EndeavourOS
 choose custom_choice || goto custom_exit
 echo ${cls}
 echo ${custom_choice}
